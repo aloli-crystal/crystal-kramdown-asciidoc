@@ -1,0 +1,58 @@
+#!/usr/bin/env crystal
+require "../src/kramdown_asciidoc"
+
+module KramdownAsciidoc
+  module CLI
+    def self.run(args : Array(String))
+      if args.includes?("--version") || args.includes?("-v")
+        puts "crystal-kramdown-asciidoc #{KramdownAsciidoc::VERSION}"
+        return
+      end
+
+      if args.includes?("--help") || args.includes?("-h")
+        print_usage
+        return
+      end
+
+      input_path = args[0]?
+      output_path = args[1]?
+
+      if input_path.nil? || input_path == "-"
+        # Read from stdin
+        markdown = STDIN.gets_to_end
+        puts KramdownAsciidoc.convert(markdown)
+      else
+        unless File.exists?(input_path)
+          STDERR.puts "Error: file not found: #{input_path}"
+          exit 1
+        end
+
+        result = KramdownAsciidoc.convert_file(input_path, output_path)
+
+        if output_path
+          STDERR.puts "Converted #{input_path} -> #{output_path}"
+        else
+          print result
+        end
+      end
+    end
+
+    private def self.print_usage
+      puts <<-USAGE
+      Usage: crystal-kramdown-asciidoc [INPUT] [OUTPUT]
+
+      Converts Markdown to AsciiDoc.
+
+      Arguments:
+        INPUT   Input Markdown file (or - for stdin, default: stdin)
+        OUTPUT  Output AsciiDoc file (default: stdout)
+
+      Options:
+        -h, --help     Show this help message
+        -v, --version  Show version
+      USAGE
+    end
+  end
+end
+
+KramdownAsciidoc::CLI.run(ARGV)

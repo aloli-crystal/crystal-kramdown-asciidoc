@@ -1,0 +1,12 @@
+/docs/
+/lib/
+/bin/
+!/bin/crystal-kramdown-asciidoc
+/.shards/
+*.dwarf
+
+# Editor files
+*.swp
+*~
+.idea/
+.vscode/

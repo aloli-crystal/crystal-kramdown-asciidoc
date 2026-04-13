@@ -1,0 +1,82 @@
+= crystal-kramdown-asciidoc
+:source-language: crystal
+
+Converts Markdown (CommonMark subset) to AsciiDoc format.
+
+Crystal port inspired by the https://github.com/asciidoctor/kramdown-asciidoc[kramdown-asciidoc] Ruby gem (v2.1.1).
+
+== Installation
+
+Add the dependency to your `shard.yml`:
+
+[source,yaml]
+----
+dependencies:
+  crystal-kramdown-asciidoc:
+    github: aloli-crystal/crystal-kramdown-asciidoc
+----
+
+Then run `shards install`.
+
+== Usage
+
+=== As a library
+
+[source,crystal]
+----
+require "crystal-kramdown-asciidoc"
+
+# Convert a string
+asciidoc = KramdownAsciidoc.convert("# Hello\n\nThis is **bold**.")
+# => "= Hello\n\nThis is *bold*.\n"
+
+# Convert a file
+KramdownAsciidoc.convert_file("input.md", "output.adoc")
+----
+
+=== As a CLI tool
+
+[source,bash]
+----
+# File to file
+crystal run bin/crystal-kramdown-asciidoc -- input.md output.adoc
+
+# File to stdout
+crystal run bin/crystal-kramdown-asciidoc -- input.md
+
+# Stdin to stdout
+echo "# Hello" | crystal run bin/crystal-kramdown-asciidoc
+----
+
+== Supported conversions
+
+[cols="1,1"]
+|===
+| Markdown | AsciiDoc
+
+| `# Heading` | `= Heading`
+| `**bold**` | `*bold*`
+| `*italic*` | `_italic_`
+| +++`code`+++ | +++`code`+++
+| Fenced code blocks | `[source]\n----`
+| `[link](url)` | `link:url[link]`
+| `![alt](url)` | `image:url[alt]`
+| `> blockquote` | `____\nblockquote\n____`
+| `- list item` | `* list item`
+| `1. ordered` | `. ordered`
+| `---` horizontal rule | `'''`
+| Tables | `\|===` tables
+| `<!-- comment -->` | `////\ncomment\n////`
+|===
+
+== Development
+
+[source,bash]
+----
+shards install
+crystal spec
+----
+
+== License
+
+This project is licensed under the MIT License. See the link:LICENSE[LICENSE] file.
