@@ -10,6 +10,9 @@ require "./kramdown_asciidoc/converter"
 module KramdownAsciidoc
   VERSION = "2.1.1"
 
+  # Version de la gem Ruby kramdown-asciidoc utilisée comme référence.
+  UPSTREAM_VERSION = "2.1.1"
+
   # Converts a Markdown string to AsciiDoc.
   def self.convert(markdown : String) : String
     document = Parser.parse(markdown)
