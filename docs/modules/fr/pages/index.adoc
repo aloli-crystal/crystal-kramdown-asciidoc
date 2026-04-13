@@ -1,0 +1,27 @@
+= Crystal Kramdown AsciiDoc
+
+Convertit du Markdown (sous-ensemble CommonMark) en format AsciiDoc. Port Crystal inspire de la gem Ruby https://github.com/asciidoctor/kramdown-asciidoc[kramdown-asciidoc] (v2.1.1).
+
+== Conversions Prises en Charge
+
+[cols="1,1"]
+|===
+| Markdown | AsciiDoc
+
+| `# Titre` | `= Titre`
+| `**gras**` | `*gras*`
+| `*italique*` | `_italique_`
+| Blocs de code | `[source]\n----`
+| `[lien](url)` | `link:url[lien]`
+| `![alt](url)` | `image:url[alt]`
+| `> citation` | `____`
+| `- element` | `* element`
+| `1. ordonne` | `. ordonne`
+| `---` ligne horizontale | `'''`
+| Tableaux | Tableaux AsciiDoc
+| `<!-- commentaire -->` | `////`
+|===
+
+== Licence
+
+MIT

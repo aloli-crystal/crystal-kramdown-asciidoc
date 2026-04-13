@@ -1,0 +1,29 @@
+= Usage
+
+== As a Library
+
+[source,crystal]
+----
+require "crystal-kramdown-asciidoc"
+
+# Convert a string
+asciidoc = KramdownAsciidoc.convert("# Hello\n\nThis is **bold**.")
+# => "= Hello\n\nThis is *bold*.\n"
+
+# Convert a file
+KramdownAsciidoc.convert_file("input.md", "output.adoc")
+----
+
+== As a CLI Tool
+
+[source,bash]
+----
+# File to file
+crystal run bin/crystal-kramdown-asciidoc -- input.md output.adoc
+
+# File to stdout
+crystal run bin/crystal-kramdown-asciidoc -- input.md
+
+# Stdin to stdout
+echo "# Hello" | crystal run bin/crystal-kramdown-asciidoc
+----

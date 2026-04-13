@@ -1,0 +1,6 @@
+name: crystal-kramdown-asciidoc
+title: 'Crystal Kramdown AsciiDoc'
+version: '2.1.1'
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/fr/nav.adoc

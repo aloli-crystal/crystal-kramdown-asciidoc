@@ -1,0 +1,29 @@
+= Utilisation
+
+== En tant que Bibliotheque
+
+[source,crystal]
+----
+require "crystal-kramdown-asciidoc"
+
+# Convertir une chaine de caracteres
+asciidoc = KramdownAsciidoc.convert("# Bonjour\n\nCeci est en **gras**.")
+# => "= Bonjour\n\nCeci est en *gras*.\n"
+
+# Convertir un fichier
+KramdownAsciidoc.convert_file("entree.md", "sortie.adoc")
+----
+
+== En Ligne de Commande
+
+[source,bash]
+----
+# Fichier vers fichier
+crystal run bin/crystal-kramdown-asciidoc -- entree.md sortie.adoc
+
+# Fichier vers stdout
+crystal run bin/crystal-kramdown-asciidoc -- entree.md
+
+# Stdin vers stdout
+echo "# Bonjour" | crystal run bin/crystal-kramdown-asciidoc
+----

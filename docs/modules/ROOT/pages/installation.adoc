@@ -1,0 +1,12 @@
+= Installation
+
+Add the dependency to your `shard.yml`:
+
+[source,yaml]
+----
+dependencies:
+  crystal-kramdown-asciidoc:
+    github: aloli-crystal/crystal-kramdown-asciidoc
+----
+
+Then run `shards install`.
