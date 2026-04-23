@@ -8,7 +8,7 @@ require "./kramdown_asciidoc/converter"
 # # => "= Hello\n\nThis is *bold*."
 # ```
 module KramdownAsciidoc
-  VERSION = "2.1.1"
+  VERSION = "2.1.1.2"
 
   # Version de la gem Ruby kramdown-asciidoc utilisée comme référence.
   UPSTREAM_VERSION = "2.1.1"

@@ -3,6 +3,29 @@
 :toc-title: Versions
 :toclevels: 2
 
+== v2.1.1.2 — 2026-04-23
+
+Suite de tests d'intégration pour le pipeline Markdown → AsciiDoc,
+en complément des specs unitaires par élément. Des fixtures réalistes
+de style README font un aller-retour à travers
+`KramdownAsciidoc.convert` et `convert_file`, et la sortie AsciiDoc
+est contrôlée sur ses marqueurs structurels (titres, blocs fenced,
+liens, listes, citations, règles) et ses invariants de document
+(séparation des paragraphes, déterminisme, absence de marqueurs
+Markdown résiduels).
+
+* 3 nouveaux fichiers de specs sous `spec/integration/` : **sanity**
+  (docs vides, trailing newline, pas de `**bold**` résiduel),
+  **full_document** (fixture README → AsciiDoc avec les marqueurs
+  attendus + `convert_file` sur fichier), **structure** (séparation
+  des paragraphes, ordre des titres, formatage des listes,
+  déterminisme). **13 tests d'intégration, 32 tests unitaires,
+  45 au total — tous verts.**
+* Nouveau helper `IntegrationHelper` dans
+  `spec/integration/spec_helper.cr` avec les primitives `convert`,
+  `fixture` et `convert_to_tempfile`, et une fixture
+  `spec/integration/fixtures/readme.md`.
+
 == v2.1.1.1 — 2026-04-22
 
 * Ajout du linter *ameba* à la CI avec configuration `.ameba.yml` partagée alignée sur l'écosystème Crystal.
