@@ -5,7 +5,7 @@ module KramdownAsciidoc
   module CLI
     def self.run(args : Array(String))
       if args.includes?("--version") || args.includes?("-v")
-        puts "crystal-kramdown-asciidoc #{KramdownAsciidoc::VERSION}"
+        puts "kramdown-asciidoc #{KramdownAsciidoc::VERSION}"
         return
       end
 
@@ -39,7 +39,7 @@ module KramdownAsciidoc
 
     private def self.print_usage
       puts <<-USAGE
-      Usage: crystal-kramdown-asciidoc [INPUT] [OUTPUT]
+      Usage: kramdown-asciidoc [INPUT] [OUTPUT]
 
       Converts Markdown to AsciiDoc.
 

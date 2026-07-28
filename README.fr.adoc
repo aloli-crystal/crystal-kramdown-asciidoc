@@ -1,4 +1,4 @@
-= crystal-kramdown-asciidoc
+= kramdown-asciidoc
 :source-language: crystal
 
 Convertit du Markdown (sous-ensemble CommonMark) en format AsciiDoc.
@@ -12,8 +12,9 @@ Ajoutez la dependance dans votre `shard.yml` :
 [source,yaml]
 ----
 dependencies:
-  crystal-kramdown-asciidoc:
-    github: aloli-crystal/crystal-kramdown-asciidoc
+  kramdown-asciidoc:
+    github: aloli-crystal/kramdown-asciidoc
+    version: "~> 2.1.1.4"
 ----
 
 Puis lancez `shards install`.
@@ -24,7 +25,7 @@ Puis lancez `shards install`.
 
 [source,crystal]
 ----
-require "crystal-kramdown-asciidoc"
+require "kramdown-asciidoc"
 
 # Convertir une chaine de caracteres
 asciidoc = KramdownAsciidoc.convert("# Bonjour\n\nCeci est en **gras**.")
@@ -39,13 +40,13 @@ KramdownAsciidoc.convert_file("entree.md", "sortie.adoc")
 [source,bash]
 ----
 # Fichier vers fichier
-crystal run bin/crystal-kramdown-asciidoc -- entree.md sortie.adoc
+crystal run bin/kramdown-asciidoc -- entree.md sortie.adoc
 
 # Fichier vers stdout
-crystal run bin/crystal-kramdown-asciidoc -- entree.md
+crystal run bin/kramdown-asciidoc -- entree.md
 
 # Stdin vers stdout
-echo "# Bonjour" | crystal run bin/crystal-kramdown-asciidoc
+echo "# Bonjour" | crystal run bin/kramdown-asciidoc
 ----
 
 == Conversions prises en charge

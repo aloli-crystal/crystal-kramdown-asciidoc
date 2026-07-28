@@ -35,4 +35,4 @@ jobs:
         run: bin/ameba
 
       - name: Build CLI
-        run: crystal build bin/crystal-kramdown-asciidoc -o /dev/null
+        run: crystal build bin/kramdown-asciidoc -o /dev/null

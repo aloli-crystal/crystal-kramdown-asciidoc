@@ -1,5 +1,5 @@
-name: crystal-kramdown-asciidoc
-version: 2.1.1.3
+name: kramdown-asciidoc
+version: 2.1.1.4
 
 authors:
   - Philippe Nénert <philippe@aloli.fr>

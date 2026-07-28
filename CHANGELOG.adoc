@@ -3,6 +3,11 @@
 :toc-title: Versions
 :toclevels: 2
 
+== v2.1.1.4 — 2026-07-28
+
+* Rename the shard `crystal-kramdown-asciidoc` → `kramdown-asciidoc` (drop the `crystal-` prefix; the `aloli-crystal` org already carries the "Crystal" context).
+* Rename the CLI entry point `bin/crystal-kramdown-asciidoc` → `bin/kramdown-asciidoc` accordingly.
+
 == v2.1.1.2 — 2026-04-23
 
 Integration test suite for the Markdown → AsciiDoc pipeline, on top

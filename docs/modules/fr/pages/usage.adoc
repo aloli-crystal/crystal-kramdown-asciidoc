@@ -4,7 +4,7 @@
 
 [source,crystal]
 ----
-require "crystal-kramdown-asciidoc"
+require "kramdown-asciidoc"
 
 # Convertir une chaine de caracteres
 asciidoc = KramdownAsciidoc.convert("# Bonjour\n\nCeci est en **gras**.")
@@ -19,11 +19,11 @@ KramdownAsciidoc.convert_file("entree.md", "sortie.adoc")
 [source,bash]
 ----
 # Fichier vers fichier
-crystal run bin/crystal-kramdown-asciidoc -- entree.md sortie.adoc
+crystal run bin/kramdown-asciidoc -- entree.md sortie.adoc
 
 # Fichier vers stdout
-crystal run bin/crystal-kramdown-asciidoc -- entree.md
+crystal run bin/kramdown-asciidoc -- entree.md
 
 # Stdin vers stdout
-echo "# Bonjour" | crystal run bin/crystal-kramdown-asciidoc
+echo "# Bonjour" | crystal run bin/kramdown-asciidoc
 ----
